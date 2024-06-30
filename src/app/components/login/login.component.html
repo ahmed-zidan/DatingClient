@@ -1,0 +1,18 @@
+@if(getUser() == null){
+<form #myForm="ngForm" class="d-flex" role="search">
+  <input class="form-control me-2" [(ngModel)]="loginDto.email" #email="ngModel" name="email"  placeholder="Email" aria-label="Search">
+  <input class="form-control me-2" [(ngModel)]="loginDto.password" #password="ngModel" name="empasswordail" type="password" placeholder="Password" aria-label="Search">
+  <button class="btn btn-outline-success"  (click)="login()">Login</button>
+  <button class="btn btn-outline-primary mx-2" routerLink="/register">Register</button>
+</form>
+}@else {
+  <div class="dropdown">
+    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+      Welcome {{username}}
+    </a>
+    <ul class="dropdown-menu">
+      <li><a class="dropdown-item" href="#">Edit Profile</a></li>
+      <li><button class="dropdown-item" (click)="logOut()">LogOut</button></li>
+    </ul>
+  </div>
+}
