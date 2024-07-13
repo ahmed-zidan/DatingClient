@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { UserService } from '../../services/user.service';
 import { Router, RouterLink } from '@angular/router';
+import { Dialog } from '@angular/cdk/dialog';
 
 @Component({
   selector: 'app-login',
@@ -44,5 +45,10 @@ export class LoginComponent{
     this.user.removeCurrentUserFromLocal();
   }
 
+  showMessage(){
+    if(confirm("confirm")){
+
+    }
+  }
 
 }

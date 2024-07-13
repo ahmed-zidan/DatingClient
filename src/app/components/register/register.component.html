@@ -1,1 +1,40 @@
-<p>register works!</p>
+@if (!registerMode) {
+<form #myForm="ngForm">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 mx-auto">
+        <mat-card >
+          <mat-card-header class="d-flex text-center justify-content-center" >
+            <h1 style="color: aliceblue;">signup</h1>
+          </mat-card-header>
+          <hr/>
+          <mat-card-content>
+            <mat-form-field class="w-100">
+              <mat-label>firstName</mat-label>
+              <input name="firstName" [(ngModel)]="user.firstName" required matInput>
+            </mat-form-field>
+            <mat-form-field class="w-100">
+              <mat-label>secondName</mat-label>
+              <input name="secondName" [(ngModel)]="user.secondName" required matInput>
+            </mat-form-field>
+            <mat-form-field class="w-100">
+              <mat-label>email</mat-label>
+              <input name="email" [(ngModel)]="user.email" required matInput>
+            </mat-form-field>
+            <mat-form-field class="w-100">
+              <mat-label>password</mat-label>
+              <input name="password" type="password" [(ngModel)]="user.password" required matInput>
+            </mat-form-field>
+          </mat-card-content>
+          <mat-card-actions class="w-100">
+            <button (click)="register()" mat-stroked-button style="background-color: chocolate;" class="d-block w-100">Submit</button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</form>
+
+}@else {
+  <h1>please login</h1>
+}

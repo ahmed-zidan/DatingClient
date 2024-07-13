@@ -1,12 +1,21 @@
 import { Routes } from '@angular/router';
 import { RegisterComponent } from './components/register/register.component';
 import { HomeComponent } from './components/home/home.component';
+import { MemberListComponent } from './components/member-list/member-list.component';
+import { MemberDetailComponent } from './components/member-detail/member-detail.component';
+import { ListsComponent } from './components/lists/lists.component';
+import { MessagesComponent } from './components/messages/messages.component';
+import { authHandlerGuard } from './guards/auth-handler.guard';
 
 export const routes: Routes = [
 
   {path:"" , component:HomeComponent},
   {path:"home" , component:HomeComponent},
   {path:"register" , component:RegisterComponent},
-  {path:"**" , component:HomeComponent}
+  {path:"members" , component:MemberListComponent,canActivate:[authHandlerGuard]},
+  {path:"members/:id" , component:MemberDetailComponent,canActivate:[authHandlerGuard]},
+  {path:"messages" , component:MessagesComponent,canActivate:[authHandlerGuard]},
+  {path:"lists" , component:ListsComponent,canActivate:[authHandlerGuard]},
+  {path:"**" , component:HomeComponent,pathMatch:'full'}
 
 ];
