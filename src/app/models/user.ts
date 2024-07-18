@@ -1,3 +1,5 @@
+import { Photo } from "./Photo"
+
 export interface userInfo {
   id: string
   userName: string
@@ -14,5 +16,21 @@ export interface registerDto {
   secondName: string
   email: string
   password: string
+}
+
+
+export interface UserMember {
+  id:string;
+  firstName: string
+  secondName: string
+  photoUrl: any
+  created: Date
+  lastActive: Date
+  age: number
+  gender: string
+  interests: string
+  city: string
+  country: string
+  photos: Photo[]
 }
 

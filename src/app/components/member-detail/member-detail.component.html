@@ -1,1 +1,68 @@
-<p>member-detail works!</p>
+@if (member) {
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card">
+      <img src="{{(member.photoUrl != null ? member.photoUrl:'https://th.bing.com/th/id/R.6b0022312d41080436c52da571d5c697?rik=ejx13G9ZroRrcg&riu=http%3a%2f%2fpluspng.com%2fimg-png%2fuser-png-icon-young-user-icon-2400.png&ehk=NNF6zZUBr0n5i%2fx0Bh3AMRDRDrzslPXB0ANabkkPyv0%3d&risl=&pid=ImgRaw&r=0')}}"
+  class="card-img-top img-thumbnail" alt="...">
+    <div class="card-body">
+      <div>
+        <strong>Location:</strong>
+        <p>{{member.city}}, {{member.country}}</p>
+      </div>
+      <div>
+        <strong>Age:</strong>
+        <p>{{member.age}}</p>
+      </div>
+      <div>
+        <strong>Member Since:</strong>
+        <p>{{member.created}}</p>
+      </div>
+      <div>
+        <strong>Last Active:</strong>
+        <p>{{member.lastActive}}</p>
+      </div>
+    </div>
+    <div class="card-footer">
+      <div class="btn-group d-flex">
+        <button class="btn btn-primary">Like</button>
+        <button class="btn btn-success">Message</button>
+      </div>
+    </div>
+    </div>
+    </div>
+    <div class="col-md-8">
+      <mat-tab-group [selectedIndex]="selected"
+            (selectedIndexChange)="change($event)" backgroundColor="primary" color="primary">
+
+            <mat-tab  label="About" >
+              <div>
+                <strong>First Name:</strong>
+                <p>{{member.firstName}}</p>
+              </div>
+              <div>
+                <strong>Last Name:</strong>
+                <p>{{member.secondName}}</p>
+              </div>
+              <div>
+                <strong>Gender:</strong>
+                <p>{{member.gender}}</p>
+              </div>
+            </mat-tab>
+            <mat-tab label="Interests">
+              <div>
+                <strong>interests:</strong>
+                <p>{{member.interests}}</p>
+              </div>
+            </mat-tab>
+            <mat-tab label="Messages">
+              content4
+            </mat-tab>
+            <mat-tab label="Photos">
+              <app-gellery [photos] = 'member.photos'></app-gellery>
+            </mat-tab>
+            </mat-tab-group>
+    </div>
+  </div>
+</div>
+}

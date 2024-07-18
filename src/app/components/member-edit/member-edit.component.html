@@ -1,0 +1,86 @@
+@if (member) {
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card">
+        <img src="{{(member.photoUrl != null ? member.photoUrl:'https://th.bing.com/th/id/R.6b0022312d41080436c52da571d5c697?rik=ejx13G9ZroRrcg&riu=http%3a%2f%2fpluspng.com%2fimg-png%2fuser-png-icon-young-user-icon-2400.png&ehk=NNF6zZUBr0n5i%2fx0Bh3AMRDRDrzslPXB0ANabkkPyv0%3d&risl=&pid=ImgRaw&r=0')}}"
+    class="card-img-top img-thumbnail" alt="...">
+
+
+
+    <div class="row" style="margin-bottom:15px;">
+      <div class="col-md">
+        <input type="file" #file placeholder="Choose file" (change)="uploadFile(file.files)" style="display:none;">
+        <button mat-button color="primary" (click)="file.click()"><mat-icon>upload</mat-icon>Upload Image</button>
+      </div>
+
+    </div>
+
+
+      <div class="card-body">
+        <div class="d-flex" style="align-items: center;">
+          <strong>Location:</strong>
+          <input [(ngModel)]="member.city" name="city" placeholder="city" class="form-control" matInput>
+          <input [(ngModel)]="member.country" name="country" placeholder="country" class="form-control" matInput>
+
+        </div>
+        <div>
+          <strong>Age:</strong>
+          <input [(ngModel)]="member.age" name="age" placeholder="age" class="form-control" matInput>
+        </div>
+        <div class="mt-3">
+          <strong>Member Since:</strong>
+          <mat-form-field>
+            <input matInput (dateInput)="updateCreateDate($event)" (dateChange)="updateCreateDate($event)" [matDatepicker]="picker" placeholder="Choose a date">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker  #picker></mat-datepicker>
+          </mat-form-field>
+        </div>
+        <div class="mt-3">
+          <strong>Last Active:</strong>
+          <input [(ngModel)]="member.lastActive" [disabled]="true" name="last Active" placeholder="last Active" class="form-control" matInput>
+        </div>
+      </div>
+      </div>
+      </div>
+      <div class="col-md-8">
+        <mat-tab-group [selectedIndex]="selected"
+              (selectedIndexChange)="change($event)" backgroundColor="primary" color="primary">
+
+              <mat-tab  label="About" >
+                <div>
+                  <strong>First Name:</strong>
+                  <input [(ngModel)]="member.firstName"  name="firstName" placeholder="firstName" class="form-control" matInput>
+
+                </div>
+                <div>
+                  <strong>Last Name:</strong>
+                  <input [(ngModel)]="member.secondName"  name="secondName" placeholder="secondName" class="form-control" matInput>
+
+                </div>
+                <div>
+                  <strong>Gender:</strong>
+                  <input [(ngModel)]="member.gender"  name="gender" placeholder="gender" class="form-control" matInput>
+
+
+                </div>
+              </mat-tab>
+              <mat-tab label="Interests">
+                <div>
+                  <strong>interests:</strong>
+                  <input [(ngModel)]="member.interests"  name="interests" placeholder="interests" class="form-control" matInput>
+
+                </div>
+              </mat-tab>
+              <mat-tab label="Photos">
+                <app-gellery [photos] = 'member.photos'></app-gellery>
+              </mat-tab>
+              </mat-tab-group>
+              <div class="col-md-8 mt-2 w-100">
+                <button class="d-block w-100" mat-raised-button color="primary" (click)="saveData()">Save</button>
+              </div>
+      </div>
+
+    </div>
+  </div>
+  }

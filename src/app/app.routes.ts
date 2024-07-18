@@ -6,6 +6,7 @@ import { MemberDetailComponent } from './components/member-detail/member-detail.
 import { ListsComponent } from './components/lists/lists.component';
 import { MessagesComponent } from './components/messages/messages.component';
 import { authHandlerGuard } from './guards/auth-handler.guard';
+import { MemberEditComponent } from './components/member-edit/member-edit.component';
 
 export const routes: Routes = [
 
@@ -13,9 +14,10 @@ export const routes: Routes = [
   {path:"home" , component:HomeComponent},
   {path:"register" , component:RegisterComponent},
   {path:"members" , component:MemberListComponent,canActivate:[authHandlerGuard]},
-  {path:"members/:id" , component:MemberDetailComponent,canActivate:[authHandlerGuard]},
+  {path:"member/:id" , component:MemberDetailComponent,canActivate:[authHandlerGuard]},
   {path:"messages" , component:MessagesComponent,canActivate:[authHandlerGuard]},
   {path:"lists" , component:ListsComponent,canActivate:[authHandlerGuard]},
+  {path:"edit" , component:MemberEditComponent,canActivate:[authHandlerGuard]},
   {path:"**" , component:HomeComponent,pathMatch:'full'}
 
 ];

@@ -1,0 +1,16 @@
+<div class="card">
+  <div class="img-wrapper">
+  <img src="{{(member.photoUrl != null ? member.photoUrl:'https://th.bing.com/th/id/R.6b0022312d41080436c52da571d5c697?rik=ejx13G9ZroRrcg&riu=http%3a%2f%2fpluspng.com%2fimg-png%2fuser-png-icon-young-user-icon-2400.png&ehk=NNF6zZUBr0n5i%2fx0Bh3AMRDRDrzslPXB0ANabkkPyv0%3d&risl=&pid=ImgRaw&r=0')}}"
+  class="card-img-top img-fluid" alt="...">
+  <ul class="icons-wrapper list-inline animate text-center">
+    <li class="list-inline-item"><button mat-icon-button color="primary" routerLink="/member/{{member.id}}"><mat-icon>man</mat-icon></button></li>
+    <li class="list-inline-item"><button mat-icon-button color="primary"><mat-icon>star</mat-icon></button></li>
+    <li class="list-inline-item"><button mat-icon-button color="primary"><mat-icon>message</mat-icon></button></li>
+  </ul>
+</div>
+  <div class="card-body">
+    <h5 class="card-title fw-bold text-center"><mat-icon>man</mat-icon>{{member.firstName}} {{member.secondName}}</h5>
+    <p class="card-text">{{member.country}}</p>
+
+  </div>
+</div>
